@@ -1,0 +1,16 @@
+<div class="container mt-4" *ngIf="formation">
+  <h2>Détails de la formation</h2>
+  <dl class="row">
+    <dt class="col-sm-3">ID</dt>
+    <dd class="col-sm-9">{{ formation.id }}</dd>
+
+    <dt class="col-sm-3">Titre</dt>
+    <dd class="col-sm-9">{{ formation.title }}</dd>
+
+    <dt class="col-sm-3">Description</dt>
+    <dd class="col-sm-9">{{ formation.description }}</dd>
+  </dl>
+
+  <button class="btn btn-secondary me-2" (click)="back()">Retour</button>
+  <button class="btn btn-primary" (click)="edit()">Éditer</button>
+</div>

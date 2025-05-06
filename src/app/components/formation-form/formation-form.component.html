@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <h2>{{ isEdit ? 'Modifier' : 'Créer' }} une formation</h2>
+  <form [formGroup]="formationForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Titre</label>
+      <input id="title" class="form-control" formControlName="title" />
+      <div *ngIf="formationForm.get('title')?.invalid && formationForm.get('title')?.touched" class="text-danger">
+        <div *ngIf="formationForm.get('title')?.errors?.['required']">Le titre est obligatoire.</div>
+        <div *ngIf="formationForm.get('title')?.errors?.['maxlength']">Max 100 caractères.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea id="description" class="form-control" formControlName="description" rows="3"></textarea>
+      <div *ngIf="formationForm.get('description')?.invalid && formationForm.get('description')?.touched" class="text-danger">
+        La description est obligatoire.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success me-2" [disabled]="formationForm.invalid">Enregistrer</button>
+    <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
+  </form>
+</div>

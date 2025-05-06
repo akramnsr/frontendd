@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Formations</h2>
+    <a routerLink="/formations/new" class="btn btn-primary">Nouvelle formation</a>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let f of pageData.content">
+      <td>{{ f.id }}</td>
+      <td>{{ f.title }}</td>
+      <td>{{ f.description }}</td>
+      <td>
+        <a [routerLink]="['/formations', f.id]" class="btn btn-sm btn-info me-1">Voir</a>
+        <a [routerLink]="['/formations', f.id, 'edit']" class="btn btn-sm btn-warning me-1">Éditer</a>
+        <button (click)="delete(f.id!)" class="btn btn-sm btn-danger">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <nav *ngIf="pageData.totalPages > 1">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="pageData.number === 0">
+        <button class="page-link" (click)="loadPage(pageData.number - 1)">Précédent</button>
+      </li>
+      <li class="page-item" *ngFor="let p of [].constructor(pageData.totalPages); let i = index" [class.active]="i === pageData.number">
+        <button class="page-link" (click)="loadPage(i)">{{ i + 1 }}</button>
+      </li>
+      <li class="page-item" [class.disabled]="pageData.number + 1 === pageData.totalPages">
+        <button class="page-link" (click)="loadPage(pageData.number + 1)">Suivant</button>
+      </li>
+    </ul>
+  </nav>
+</div>
