@@ -1,5 +1,5 @@
 export interface Formation {
-  id?: number;
+  id: number;
   title: string;
   description: string;
 }

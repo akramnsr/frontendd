@@ -1,20 +1,18 @@
 // src/app/app.component.ts
-import { Component }    from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CommonModule,    // pour *ngIf si tu en as besoin, et tout le reste
-    RouterOutlet     // pour <router-outlet>
-  ],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  imports: [RouterOutlet],
+  template: `
+    <header>
+      <h1>FormationsApp</h1>
+    </header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  `
 })
-export class AppComponent {
-  // L’erreur “title n’existe pas” vient du fait que ton template dit {{ title }}
-  // Il faut donc ajouter cette propriété :
-  title = 'FormationsApp';
-}
+export class AppComponent {}
