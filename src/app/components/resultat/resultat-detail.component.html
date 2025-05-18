@@ -1,5 +1,10 @@
 <h2>Détail du Résultat</h2>
 <div *ngIf="resultat">
   <p><strong>ID:</strong> {{ resultat.id }}</p>
+  <p><strong>Étudiant:</strong> {{ resultat.etudiant?.nom }} {{ resultat.etudiant?.prenom }}</p>
+  <p><strong>Quiz:</strong> {{ resultat.quiz?.titre }}</p>
   <p><strong>Score:</strong> {{ resultat.score }}</p>
+  <p><strong>Date:</strong> {{ resultat.datePassage | date:'dd/MM/yyyy HH:mm' }}</p>
+  <p><strong>Statut:</strong> {{ resultat.statut }}</p>
+  <a routerLink="/resultats" class="btn btn-secondary">← Retour à la liste</a>
 </div>

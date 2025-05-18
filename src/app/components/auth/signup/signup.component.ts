@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 export class SignupComponent {
   email: string = '';
   password: string = '';
+  nom: string = '';
+  prenom: string = '';
   errorMsg: string = '';
   successMsg: string = '';
 
@@ -39,7 +41,7 @@ export class SignupComponent {
   onSignup() {
     this.errorMsg = '';
     this.successMsg = '';
-    this.authService.signup(this.email, this.password).subscribe({
+    this.authService.signup(this.email, this.password, this.nom, this.prenom).subscribe({
       next: () => this.router.navigate(['/formations']),
       error: (err: any) => {
         if (typeof err.error === 'string') {

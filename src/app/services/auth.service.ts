@@ -31,8 +31,8 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  signup(email: string, password: string) {
-    return this.http.post<{ token: string }>('/api/auth/signup', { email, password }).pipe(
+  signup(email: string, password: string, nom: string, prenom: string) {
+    return this.http.post<{ token: string }>('/api/auth/signup', { email, password, nom, prenom }).pipe(
       tap(response => {
         localStorage.setItem('token', response.token);
         this.router.navigate(['/formations']); // ou la page d’accueil de ton choix

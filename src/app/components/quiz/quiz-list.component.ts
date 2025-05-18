@@ -1,4 +1,3 @@
-// src/app/components/quiz/quiz-list/quiz-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Quiz } from '../../models/quiz.model';
 import { QuizService } from '../../services/quiz.service';
@@ -11,9 +10,8 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
   standalone: true,
   imports: [CommonModule, RouterModule, NgbPaginationModule],
   templateUrl: './quiz-list.component.html',
-  styleUrls: ['./quiz-list.component.css'] // ← AJOUTE CETTE LIGNE
+  styleUrls: ['./quiz-list.component.css']
 })
-
 export class QuizListComponent implements OnInit {
   quizzes: Quiz[] = [];
   page = 0;
@@ -29,14 +27,12 @@ export class QuizListComponent implements OnInit {
   loadPage() {
     this.quizService.list(this.page, this.size).subscribe({
       next: page => {
-        console.log('🎯 API response quiz:', page);
         this.quizzes = page.content;
         this.totalPages = page.totalPages;
       },
-      error: err => console.error('❌ Quiz API error', err)
+      error: err => console.error('Quiz API error', err)
     });
   }
-
 
   pageChange(newPage: number) {
     this.page = newPage - 1;

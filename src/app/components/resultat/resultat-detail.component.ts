@@ -8,13 +8,8 @@ import { Resultat } from '../../models/resultat.model';
   selector: 'app-resultat-detail',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  template: `
-    <h2>Détail du Résultat</h2>
-    <div *ngIf="resultat">
-      <p><strong>ID:</strong> {{ resultat.id }}</p>
-      <p><strong>Score:</strong> {{ resultat.score }}</p>
-    </div>
-  `
+  templateUrl: './resultat-detail.component.html',  // ✅ Utilise le template EXTERNE
+  styleUrls: ['./resultat-detail.component.css']
 })
 export class ResultatDetailComponent implements OnInit {
   resultat?: Resultat;

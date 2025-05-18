@@ -1,5 +1,37 @@
-<div *ngIf="rapport">
-  <h2>Détail du Rapport #{{ rapport?.id }}</h2>
-  <p><strong>Commentaire :</strong></p>
-  <p>{{ rapport?.commentaire }}</p>
+<section class="intro-video-section">
+  <div class="video-container">
+    <video autoplay muted loop playsinline>
+      <source src="/Rapportvideo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<div *ngIf="rapport" class="rapport-detail-container">
+  <h2>Détail du Rapport #{{ rapport.id }}</h2>
+  <dl>
+    <dt>Étudiant :</dt>
+    <dd>
+      {{ rapport.etudiant?.nom }} {{ rapport.etudiant?.prenom }}
+    </dd>
+
+    <dt>Formation :</dt>
+    <dd>{{ rapport.formation?.titre || '-' }}</dd>
+
+    <dt>Score :</dt>
+    <dd>{{ rapport.score || '-' }}</dd>
+
+    <dt>Date :</dt>
+    <dd>{{ rapport.dateSoumission | date:'yyyy-MM-dd' }}</dd>
+
+    <dt>Contenu :</dt>
+    <dd>{{ rapport.contenu || '-' }}</dd>
+
+    <dt>Commentaire :</dt>
+    <dd>{{ rapport.commentaire || '-' }}</dd>
+
+    <dt>Commentaire formateur :</dt>
+    <dd>{{ rapport.commentaireFormateur || '-' }}</dd>
+  </dl>
+  <a routerLink="/rapports" class="btn btn-secondary">← Retour à la liste</a>
 </div>

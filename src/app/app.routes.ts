@@ -11,6 +11,8 @@ import { ResultatListComponent } from './components/resultat/resultat-list.compo
 import { ResultatDetailComponent } from './components/resultat/resultat-detail.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { authGuard } from './guards/auth.guard';
+import {FormationDetailComponent} from './components/formations/formation-detail.component';
+import {RapportEtuDetailComponent} from './components/rapport/rapport-etu-detail.component';
 
 export const routes: Routes = [
   {
@@ -23,11 +25,16 @@ export const routes: Routes = [
       // Toutes les pages protégées
       { path: 'formations', component: FormationListComponent, canActivate: [authGuard] },
       { path: 'rapports', component: RapportEtuListComponent, canActivate: [authGuard] },
+      { path: 'rapports/:id', component: RapportEtuDetailComponent,canActivate: [authGuard] },
       { path: 'profil', component: ProfilComponent, canActivate: [authGuard] },
       { path: 'quizzes', component: QuizListComponent, canActivate: [authGuard] },
       { path: 'quizzes/:id', component: QuizDetailComponent, canActivate: [authGuard] },
       { path: 'resultats', component: ResultatListComponent, canActivate: [authGuard] },
       { path: 'resultats/:id', component: ResultatDetailComponent, canActivate: [authGuard] },
+      { path: 'formations/:id', component: FormationDetailComponent, canActivate: [authGuard]},
+      { path: '', redirectTo: 'formations', pathMatch: 'full' }, // optionnel : page d'accueil
+      { path: '**', redirectTo: 'formations' } // route wildcard
+
     ]
   },
   { path: '**', redirectTo: '' }

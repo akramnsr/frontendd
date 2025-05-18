@@ -7,34 +7,29 @@
   </div>
 </section>
 
-<section class="quiz-list">
-  <h2 class="section-title">Nos Quiz interactifs</h2>
 
-  <div *ngIf="quizzes && quizzes.length === 0" class="empty-state">
-    <p>Aucun quiz disponible pour le moment.</p>
-    <img src="erreurformation.png" alt="Aucun quiz" class="empty-img" />
-  </div>
-
-  <div class="cards" *ngIf="quizzes.length > 0">
-    <article class="quiz-card" *ngFor="let q of quizzes">
-      <div class="card-content">
-        <div class="card-left">
-          <span class="badge">Quiz #{{ q.id }}</span>
-          <h3 class="quiz-title">{{ q.titre }}</h3>
-          <p class="description">{{ q.description }}</p>
-          <a [routerLink]="['/quizzes', q.id]" class="btn-primary">Voir le quiz</a>
+<div class="cards" *ngIf="quizzes.length > 0">
+  <article class="quiz-card" *ngFor="let q of quizzes">
+    <div class="card-content">
+      <div class="card-left">
+        <span class="badge">Quiz #{{ q.id }}</span>
+        <h3 class="quiz-title">{{ q.titre }}</h3>
+        <p class="description">{{ q.description }}</p>
+        <div *ngIf="q.formation">
+          <strong>Formation :</strong> {{ q.formation.titre }}
         </div>
-        <div class="card-right">
-          <img src="4955888-removebg-preview.png" alt="Quiz" class="illustration" />
-        </div>
+        <a [routerLink]="['/quizzes', q.id]" class="btn-primary">Voir le quiz</a>
       </div>
-    </article>
-  </div>
-
-  <ngb-pagination
-    [collectionSize]="totalPages * size"
-    [pageSize]="size"
-    [(page)]="page"
-    (pageChange)="pageChange($event)">
-  </ngb-pagination>
-</section>
+      <div class="card-right">
+        <img *ngIf="q.imageUrl"
+             [src]="'/uploads/' + q.imageUrl"
+             alt="Quiz"
+             class="illustration" style="max-width:100px"/>
+        <img *ngIf="!q.imageUrl"
+             src="4955888-removebg-preview.png"
+             alt="Quiz"
+             class="illustration"/>
+      </div>
+    </div>
+  </article>
+</div>

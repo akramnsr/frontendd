@@ -15,8 +15,7 @@ export class ProfilComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    const userId = 1; // à remplacer plus tard par un ID dynamique
-    this.userService.getUserById(userId).subscribe({
+    this.userService.getUserMe().subscribe({
       next: (data: UserDto) => this.user = data,
       error: (err: any) => console.error('Erreur chargement profil', err)
     });
@@ -25,4 +24,7 @@ export class ProfilComponent implements OnInit {
   get firstLetter(): string {
     return this.user?.prenom?.charAt(0) ?? '';
   }
+
+
+
 }

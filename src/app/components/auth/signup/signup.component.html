@@ -10,10 +10,13 @@
     <div class="divider">or</div>
 
     <form (ngSubmit)="onSignup()">
+      <input type="text" class="email-input" placeholder="Nom" [(ngModel)]="nom" name="nom" required />
+      <input type="text" class="email-input" placeholder="Prénom" [(ngModel)]="prenom" name="prenom" required />
       <input type="email" class="email-input" placeholder="Email" [(ngModel)]="email" name="email" required />
       <input type="password" class="email-input" placeholder="Password" [(ngModel)]="password" name="password" required />
       <button class="auth-button primary" type="submit">Create account</button>
     </form>
+
 
     <div *ngIf="errorMsg" class="error-msg">{{ errorMsg }}</div>
     <div *ngIf="successMsg" class="success-msg">{{ successMsg }}</div>

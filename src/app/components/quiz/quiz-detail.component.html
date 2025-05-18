@@ -1,7 +1,32 @@
-<!-- src/app/components/quiz/quiz-detail/quiz-detail.component.html -->
 <div class="container mt-4" *ngIf="quiz">
-  <h2>Quiz : {{ quiz.titre }}</h2>
-  <p><strong>Description :</strong> {{ quiz.description }}</p>
-  <p><strong>ID :</strong> {{ quiz.id }}</p>
-  <a routerLink="/quizzes" class="btn btn-secondary">← Retour à la liste</a>
+  <h2>{{ quiz.titre }}</h2>
+
+  <div *ngIf="quiz.imageUrl">
+    <img [src]="'/uploads/' + quiz.imageUrl"
+         class="img-fluid mb-4"
+         alt="Image du quiz" style="max-width:350px; border-radius:10px;">
+  </div>
+
+  <dl class="row">
+    <dt class="col-sm-3">Description :</dt>
+    <dd class="col-sm-9">{{ quiz.description }}</dd>
+
+    <dt class="col-sm-3">Nombre de questions :</dt>
+    <dd class="col-sm-9">{{ quiz.nbQuestions || '...' }}</dd>
+
+    <dt class="col-sm-3">Durée (min) :</dt>
+    <dd class="col-sm-9">{{ quiz.duree || '...' }}</dd>
+
+    <dt class="col-sm-3">Date d’inscription :</dt>
+    <dd class="col-sm-9">{{ quiz.dateInscription | date:'dd/MM/yyyy' }}</dd>
+
+    <dt class="col-sm-3">Formation associée :</dt>
+    <dd class="col-sm-9">
+      <span *ngIf="quiz.formation">{{ quiz.formation.titre }}</span>
+      <span *ngIf="!quiz.formation">-</span>
+    </dd>
+  </dl>
+
+  <a routerLink="/quizzes" class="btn btn-secondary">← Retour à la liste des quiz</a>
+  <button class="btn btn-primary ms-2">Commencer le quiz</button>
 </div>

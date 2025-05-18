@@ -20,4 +20,12 @@ export class UserService {
   getUserById(id: number): Observable<UserDto> {
     return this.http.get<UserDto>(`${this.apiUrl}/${id}`);
   }
+
+  getEtudiants(): Observable<UserDto[]> {
+    return this.http.get<UserDto[]>(`${this.apiUrl}/etudiants`);
+  }
+  getUserMe(): Observable<UserDto> {
+    return this.http.get<UserDto>(`${this.apiUrl}/me`);
+  }
+
 }
