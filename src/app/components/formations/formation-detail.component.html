@@ -1,0 +1,26 @@
+<section class="formation-detail" *ngIf="formation">
+  <div class="detail-header">
+    <h2>{{ formation.titre }}</h2>
+    <span class="badge">{{ formation.niveau }}</span>
+  </div>
+
+  <!-- Couverture si présente -->
+  <div class="image-couverture" *ngIf="formation.imageUrl">
+    <img [src]="'/uploads/' + formation.imageUrl" alt="Couverture de la formation" style="max-width: 350px; border-radius: 10px; margin-bottom: 1rem;">
+  </div>
+
+  <p class="description">{{ formation.description }}</p>
+
+  <div>
+    <strong>Durée :</strong> {{ formation.dureeHeures }} h
+  </div>
+
+  <div class="video-preview" *ngIf="formation.videoUrl">
+    <video controls class="video-player">
+      <source [src]="formation.videoUrl" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <button class="btn">Commencer la formation</button>
+</section>

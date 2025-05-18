@@ -1,0 +1,26 @@
+<ng-container *ngIf="user; else loading">
+  <section class="card profile-header">
+    <h2>Détails du profil</h2>
+    <div class="profile-info">
+      <div class="avatar-placeholder">
+        {{ firstLetter }}
+      </div>
+      <div>
+        <h3>{{ user.prenom }} {{ user.nom }}</h3>
+        <p>{{ user.email }}</p>
+        <button>📋 Copier le lien</button>
+        <a href="#">Modifier la visibilité</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Expérience</h3>
+    <p>Aucune expérience ajoutée.</p>
+    <button>+ Ajouter une expérience</button>
+  </section>
+</ng-container>
+
+<ng-template #loading>
+  <p>Chargement du profil...</p>
+</ng-template>

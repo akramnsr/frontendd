@@ -1,0 +1,37 @@
+<section class="intro-video-section">
+  <div class="video-container">
+    <video autoplay muted loop playsinline>
+      <source src="/Rapportvideo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+<section class="rapport-section">
+  <h2 class="section-title">Rapports Étudiants</h2>
+
+  <div *ngIf="rapports.length === 0" class="empty-state">
+    <p>Aucun rapport pour le moment.</p>
+  </div>
+
+  <div class="rapport-cards" *ngIf="showRapport && currentRapport">
+    <article class="rapport-card" [@fadeSlide] [@staggerIn]>
+      <div class="rapport-content">
+        <div class="rapport-left">
+          <span class="badge fade-item">Rapport #{{ currentRapport.id }}</span>
+          <h3 class="rapport-title fade-item">Rapport</h3>
+          <p class="rapport-desc fade-item">{{ currentRapport.commentaire | slice:0:60 }}...</p>
+          <a [routerLink]="['/rapports', currentRapport.id]" class="btn-primary fade-item">Voir le rapport</a>
+        </div>
+        <div class="rapport-right fade-item">
+          <img src="/report.png" alt="Report Icon" class="rapport-img" />
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="rapport-pagination">
+    <button (click)="prevRapport()" [disabled]="page === 0">Précédent</button>
+    <span>Page {{ page + 1 }}</span>
+    <button (click)="nextRapport()" [disabled]="page + 1 >= rapports.length">Suivant</button>
+  </div>
+</section>

@@ -1,0 +1,193 @@
+<div class="page-container">
+
+
+  <main class="main-content">
+    <section class="hero">
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="welcomeElearn.mp4" type="video/mp4" />
+        Votre navigateur ne supporte pas les vidéos HTML5.
+      </video>
+      <div class="hero-content blur-bg">
+        <h1>Welcome to <span class="gradient-text">E-Learn</span></h1>
+        <p>Dynamic courses, interactive quizzes, and personalized tracking.</p>
+        <button class="cta" (click)="goToLogin()">START</button>
+
+      </div>
+
+    </section>
+
+    <section class="features-section">
+      <div class="feature-card">
+        <img src="learn-icon.png" alt="Formations" />
+        <h3>Formations variées</h3>
+        <p>Accédez à une multitude de cours certifiés dans différents domaines.</p>
+      </div>
+      <div class="feature-card">
+        <img src="quiz-icon.png" alt="Quiz" />
+        <h3>Quizz interactifs</h3>
+        <p>Testez vos compétences avec des quiz intelligents après chaque chapitre.</p>
+      </div>
+      <div class="feature-card">
+        <img src="report.png" alt="Suivi personnalisé" />
+        <h3>Suivi personnalisé</h3>
+        <p>Suivez votre progression avec des rapports détaillés et des statistiques.</p>
+      </div>
+    </section>
+
+    <section class="partners-section">
+      <h2>Déjà +10 000 apprenants nous font confiance</h2>
+      <div class="partners">
+        <img src="parralello-removebg-preview.png" alt="Partenaire 1" />
+        <img src="partner2-removebg-preview.png" alt="Partenaire 2" />
+        <img src="partner9-removebg-preview.png" alt="Partenaire 3" />
+        <img src="partner4-removebg-preview.png" alt="Partenaire 4" />
+      </div>
+    </section>
+    <section class="info-title">
+      <h1>
+        Online <span class="gradient-text">Learning</span> WebSite
+      </h1>
+      <p>
+        Empower your journey with smart learning paths, interactive quizzes, and progress insights tailored to your goals.
+      </p>
+    </section>
+
+
+    <section class="info-section">
+      <!-- CARD 1 -->
+      <div class="info-block">
+        <div class="info-text">
+          <h2>Find courses</h2>
+          <h2>without</h2>
+          <h2>complexity</h2>
+          <p>Browse a wide selection of certified</p>
+          <p>courses in technology, business, languages, and more.</p>
+          <button (click)="goToLogin()">Browse Courses</button>
+        </div>
+        <div class="info-image">
+          <img src="image1-removebg-preview.png" alt="Courses" />
+        </div>
+      </div>
+
+      <!-- CARD 2 (no reverse, image à droite comme carte 1) -->
+      <div class="info-block">
+        <div class="info-text">
+          <h2>Interactive</h2>
+          <h2>Quiz</h2>
+          <h2>Evaluation</h2>
+          <p>Test your knowledge live and get smart feedback instantly with our dynamic quizzes.</p>
+          <button (click)="goToLogin()">Start Quiz</button>
+        </div>
+        <div class="info-image">
+          <img src="image2-removebg-preview.png" alt="Quizzes" />
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="info-block">
+        <div class="info-text">
+          <h2>Personalized</h2>
+          <h2>Learning</h2>
+          <h2>Reports</h2>
+          <p>Track your progress with detailed statistics and analytics tailored just for you.</p>
+          <button (click)="goToLogin()">View Reports</button>
+        </div>
+        <div class="info-image">
+          <img src="image3-removebg-preview.png" alt="Reports" />
+        </div>
+      </div>
+    </section>
+    <section class="creators-section">
+      <h2 class="section-title"><span class="gradient-text">E-Learn</span> Creators</h2>
+      <p class="section-subtitle">
+        Meet the brilliant minds who brought the E-Learn platform to life.
+      </p>
+
+      <div class="creators-cards">
+        <!-- Card 1 -->
+        <div class="creator-card">
+          <img src="/akram.jpeg" alt="Akram Nouasria" class="creator-img" />
+          <blockquote>"Architect of the E-Learn back office experience."</blockquote>
+          <p class="creator-name">Akram Nouasria</p>
+          <p class="creator-role">Back Office Developer</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="creator-card">
+          <img src="/ayoub.jpeg" alt="Ayoub Baroukh" class="creator-img" />
+          <blockquote>"Built the dynamic and intuitive front end of E-Learn."</blockquote>
+          <p class="creator-name">Ayoub Baroukh</p>
+          <p class="creator-role">Front Office Developer</p>
+        </div>
+      </div>
+    </section>
+    <section class="video-section">
+      <h2 class="video-title">Explore Our <span class="gradient-text">E-Learn</span> in Motion</h2>
+
+      <p class="video-subtitle">See how learning comes alive with real content and dynamic experiences.</p>
+
+      <div class="video-grid">
+
+        <!-- Ligne 1 : 2 vidéos -->
+        <div class="video-row">
+          <div class="video-card">
+            <video autoplay muted loop playsinline class="video">
+              <source src="/video1.mp4" type="video/mp4" />
+            </video>
+            <div class="video-caption-overlay">Learning Path Preview</div>
+          </div>
+
+          <div class="video-card">
+            <video autoplay muted loop playsinline class="video">
+              <source src="/video2.mp4" type="video/mp4" />
+            </video>
+            <div class="video-caption-overlay">Interactive Quiz in Action</div>
+          </div>
+        </div>
+
+        <!-- Ligne 2 : 1 vidéo large -->
+        <div class="video-row full-width">
+          <div class="video-card video-card-wide">
+            <video autoplay muted loop playsinline class="video">
+              <source src="/video3.mp4" type="video/mp4" />
+            </video>
+            <div class="video-caption-overlay">Dashboard & Reports Overview</div>
+          </div>
+        </div>
+
+        <!-- Ligne 3 : 2 vidéos -->
+        <div class="video-row">
+          <div class="video-card">
+            <video autoplay muted loop playsinline class="video">
+              <source src="/video4.mp4" type="video/mp4" />
+            </video>
+            <div class="video-caption-overlay">Student Experience Tour</div>
+          </div>
+
+          <div class="video-card">
+            <video autoplay muted loop playsinline class="video">
+              <source src="/video5.mp4" type="video/mp4" />
+            </video>
+            <div class="video-caption-overlay">Mobile Learning on the Go</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="hero-black">
+      <div class="hero-black-content">
+        <h1>
+          Turn your learning journey<br />
+          <span class="gradient-text-hero">from spark to mastery</span>
+        </h1>
+        <p>Access dynamic, interactive, and personalized learning paths in just one click.</p>
+
+        <button (click)="goToLogin()" class="cta-btn">Start Learning Now, it's Free!</button>
+      </div>
+    </section>
+
+
+
+
+  </main>
+</div>

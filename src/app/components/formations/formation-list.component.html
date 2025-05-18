@@ -1,0 +1,42 @@
+<!-- SECTION vidéo d’intro : NE PAS SUPPRIMER -->
+<section class="intro-video-section">
+  <div class="video-container">
+    <video autoplay muted loop playsinline>
+      <source src="/formationvideo1.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<!-- LISTE DES FORMATIONS -->
+<section class="formation-list">
+  <h2 class="section-title">Nos formations interactives</h2>
+
+  <div *ngIf="formations.length === 0" class="empty-state">
+    <p>Aucune formation disponible pour le moment.</p>
+    <img src="erreurformation.png" alt="Illustration d'absence de formation" class="empty-img" />
+  </div>
+
+  <div class="cards" *ngIf="formations.length > 0">
+    <article class="formation-card" *ngFor="let f of formations">
+      <div class="card-content">
+        <div class="card-left">
+          <span class="badge">{{ f.niveau }}</span>
+          <h3 class="formation-title">{{ f.titre }}</h3>
+          <p class="description">{{ f.description }}</p>
+          <div>
+            <span class="duree">Durée : {{ f.dureeHeures }} h</span>
+          </div>
+          <button class="btn-primary" [routerLink]="['/formations', f.id]">Voir les détails</button>
+        </div>
+        <div class="card-right">
+          <!-- Utilise la couverture si elle existe, sinon illustration par défaut -->
+          <img [src]="'http://localhost:8080/uploads/' + f.imageUrl"
+               alt="Couverture Formation"
+               class="cover-img">
+
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

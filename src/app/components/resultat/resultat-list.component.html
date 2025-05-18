@@ -1,0 +1,20 @@
+<section class="resultat-section">
+  <h2>Liste des Résultats</h2>
+
+  <table class="resultat-table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Score</th>
+      <th>Détails</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let r of resultats">
+      <td>{{ r.id }}</td>
+      <td>{{ r.score }}</td>
+      <td><a [routerLink]="['/resultats', r.id]">Voir</a></td>
+    </tr>
+    </tbody>
+  </table>
+</section>

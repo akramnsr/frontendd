@@ -1,0 +1,7 @@
+<!-- src/app/components/quiz/quiz-detail/quiz-detail.component.html -->
+<div class="container mt-4" *ngIf="quiz">
+  <h2>Quiz : {{ quiz.titre }}</h2>
+  <p><strong>Description :</strong> {{ quiz.description }}</p>
+  <p><strong>ID :</strong> {{ quiz.id }}</p>
+  <a routerLink="/quizzes" class="btn btn-secondary">← Retour à la liste</a>
+</div>
