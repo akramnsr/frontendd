@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service'; // adapte le chemin si besoin
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
           <a routerLink="/" class="logo">E-Learn</a>
         </div>
 
-        <!-- ✅ Pour les routes "classiques" -->
+        <!-- Pour les routes "classiques" -->
         <div class="right-section" *ngIf="!isMinimalRoute()">
           <nav class="nav-links">
             <a routerLink="/formations" routerLinkActive="active">Formations</a>
@@ -22,14 +23,19 @@ import { CommonModule } from '@angular/common';
             <a routerLink="/resultats" routerLinkActive="active">Résultats</a>
           </nav>
 
-          <div class="avatar-wrapper">
-            <a routerLink="/profil" class="profile-link">
-              <img src="ayoub.jpeg" alt="Profil" class="profile-pic" />
-            </a>
-          </div>
+
+          <!-- 🔥 Le bouton Déconnexion -->
+          <button
+            *ngIf="authService.isLoggedIn()"
+            class="btn btn-primary"
+            (click)="logout()"
+            style="margin-left: 1.5rem;"
+          >
+            Se déconnecter
+          </button>
         </div>
 
-        <!-- ✅ Pour les pages login/signup -->
+        <!-- Pour les pages login/signup -->
         <div class="right-section" *ngIf="isMinimalRoute()">
           <nav class="auth-links">
             <a routerLink="/login" routerLinkActive="active" class="auth-link">Login</a>
@@ -139,9 +145,16 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class NavbarComponent {
-  constructor(public router: Router) {}
+  constructor(
+    public router: Router,
+    public authService: AuthService  // Ajouté ici
+  ) {}
 
   isMinimalRoute(): boolean {
     return ['/', '/login', '/signup'].includes(this.router.url);
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

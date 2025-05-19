@@ -43,8 +43,9 @@ export class RapportEtuListComponent implements OnInit {
   constructor(private rapportService: RapportEtuService) {}
 
   ngOnInit(): void {
-    this.rapportService.getRapports(0, 100).subscribe(data => {
-      this.rapports = data.content;
+    // 🔑 On récupère SEULEMENT les rapports de l’étudiant connecté
+    this.rapportService.getMesRapports().subscribe(data => {
+      this.rapports = data;
     });
   }
 

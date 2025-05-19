@@ -7,7 +7,6 @@
   </div>
 </section>
 
-
 <div class="cards" *ngIf="quizzes.length > 0">
   <article class="quiz-card" *ngFor="let q of quizzes">
     <div class="card-content">
@@ -16,7 +15,7 @@
         <h3 class="quiz-title">{{ q.titre }}</h3>
         <p class="description">{{ q.description }}</p>
         <div *ngIf="q.formation">
-          <strong>Formation :</strong> {{ q.formation.titre }}
+          <strong>Formation :</strong> {{ q.formation.titre }}
         </div>
         <a [routerLink]="['/quizzes', q.id]" class="btn-primary">Voir le quiz</a>
       </div>

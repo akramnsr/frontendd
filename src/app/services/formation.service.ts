@@ -27,4 +27,9 @@ export class FormationService {
   getFormation(id: number): Observable<Formation> {
     return this.http.get<Formation>(`${this.apiUrl}/${id}`);
   }
+
+  commencerFormation(id: number): Observable<void> {
+    return this.http.post<void>(`/api/formations/${id}/commencer`, {});
+  }
+
 }

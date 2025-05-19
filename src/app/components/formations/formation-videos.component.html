@@ -16,10 +16,9 @@
       <video
         controls
         class="video-player"
-        [src]="'http://localhost:8080' + videos[currentVideoIndex]?.url"
+        [src]="'http://localhost:8080' + videos[currentVideoIndex].url"
       ></video>
-      <div class="video-filename">{{ videos[currentVideoIndex]?.filename }}</div>
-    </div>
+      <div class="video-filename">{{ videos[currentVideoIndex].filename }}</div></div>
   </ng-container>
 
   <ng-template #noVideos>
@@ -27,4 +26,20 @@
       <p>Aucune vidéo disponible pour cette formation.</p>
     </div>
   </ng-template>
+</div>
+<!-- Liste des quiz associés -->
+<div class="quiz-list-section" *ngIf="quizzes.length > 0">
+  <h3>Quiz associé{{ quizzes.length > 1 ? 's' : '' }} à cette formation :</h3>
+  <div class="quiz-list">
+    <div class="quiz-item" *ngFor="let quiz of quizzes">
+      <span class="quiz-title">{{ quiz.titre }}</span>
+      <button class="btn-primary" (click)="goToQuiz(quiz.id)">
+        Commencer le quiz
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Si aucun quiz -->
+<div class="quiz-list-section" *ngIf="quizzes.length === 0">
+  <em>Aucun quiz associé à cette formation pour le moment.</em>
 </div>

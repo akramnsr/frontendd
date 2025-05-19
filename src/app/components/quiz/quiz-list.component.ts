@@ -20,8 +20,12 @@ export class QuizListComponent implements OnInit {
 
   constructor(private quizService: QuizService) {}
 
+
   ngOnInit() {
-    this.loadPage();
+    this.quizService.getMyQuizzes().subscribe({
+      next: quizzes => this.quizzes = quizzes,
+      error: err => console.error('Erreur quiz:', err)
+    });
   }
 
   loadPage() {

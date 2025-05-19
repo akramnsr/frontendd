@@ -1,32 +1,37 @@
-<div class="container mt-4" *ngIf="quiz">
-  <h2>{{ quiz.titre }}</h2>
+<div class="container mt-4" *ngIf="quiz as qz">
+  <h2>{{ qz.titre }}</h2>
 
-  <div *ngIf="quiz.imageUrl">
-    <img [src]="'/uploads/' + quiz.imageUrl"
-         class="img-fluid mb-4"
-         alt="Image du quiz" style="max-width:350px; border-radius:10px;">
+
+
+  <!-- Affichage du QCM -->
+  <div *ngIf="qz.questions.length">
+    <div class="qcm-question-box">
+      <div class="qcm-progress">Question {{ current + 1 }} / {{ qz.questions.length }}</div>
+      <div class="qcm-question">{{ qz.questions[current].libelle }}</div>
+      <ul class="qcm-choices">
+        <li *ngFor="let ch of qz.questions[current].choices; let c = index">
+          <label>
+            <input type="radio"
+                   name="qcm-{{ current }}"
+                   [checked]="answers[current] === c"
+                   [disabled]="validated"
+                   (change)="selectAnswer(current, c)">
+            {{ ch.texte }}
+            <span *ngIf="validated && ch.correct" class="correct-icon">✔</span>
+            <span *ngIf="validated && answers[current] === c && !ch.correct" class="wrong-icon">✘</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="qcm-navigation">
+      <button class="btn btn-outline-secondary" (click)="previous()" [disabled]="current === 0">← Précédent</button>
+      <button class="btn btn-outline-secondary" (click)="next()" [disabled]="current === qz.questions.length - 1">Suivant →</button>
+      <button class="btn btn-primary" (click)="validate()" [disabled]="validated || answers.includes(-1)">Valider le QCM</button>
+      <button *ngIf="validated" class="btn btn-secondary" (click)="reset()">Recommencer</button>
+    </div>
+    <div *ngIf="validated" class="qcm-score mt-3">
+      <h4>Score : {{ score }} / {{ qz.questions.length }}</h4>
+    </div>
   </div>
-
-  <dl class="row">
-    <dt class="col-sm-3">Description :</dt>
-    <dd class="col-sm-9">{{ quiz.description }}</dd>
-
-    <dt class="col-sm-3">Nombre de questions :</dt>
-    <dd class="col-sm-9">{{ quiz.nbQuestions || '...' }}</dd>
-
-    <dt class="col-sm-3">Durée (min) :</dt>
-    <dd class="col-sm-9">{{ quiz.duree || '...' }}</dd>
-
-    <dt class="col-sm-3">Date d’inscription :</dt>
-    <dd class="col-sm-9">{{ quiz.dateInscription | date:'dd/MM/yyyy' }}</dd>
-
-    <dt class="col-sm-3">Formation associée :</dt>
-    <dd class="col-sm-9">
-      <span *ngIf="quiz.formation">{{ quiz.formation.titre }}</span>
-      <span *ngIf="!quiz.formation">-</span>
-    </dd>
-  </dl>
-
-  <a routerLink="/quizzes" class="btn btn-secondary">← Retour à la liste des quiz</a>
-  <button class="btn btn-primary ms-2">Commencer le quiz</button>
 </div>

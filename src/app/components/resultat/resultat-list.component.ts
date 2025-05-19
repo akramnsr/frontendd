@@ -8,26 +8,23 @@ import { Resultat } from '../../models/resultat.model';
   selector: 'app-resultat-list',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './resultat-list.component.html', // ✅ lien vers fichier
+  templateUrl: './resultat-list.component.html',
   styleUrls: ['./resultat-list.component.css']
 })
 export class ResultatListComponent implements OnInit {
   resultats: Resultat[] = [];
-  page: number = 0;
-  size: number = 10;
 
   constructor(private resultatService: ResultatService) {}
 
   ngOnInit(): void {
-    this.loadResultats();
+    // Affiche uniquement MES résultats (étudiant connecté)
+    this.loadMesResultats();
   }
 
-  loadResultats(): void {
-    this.resultatService.getAll(this.page, this.size).subscribe({
-      next: (res: any) => {
-        this.resultats = res?.content ?? res;
-      },
-      error: err => console.error('Erreur lors du chargement des résultats', err)
+  loadMesResultats(): void {
+    this.resultatService.getAllMyResults().subscribe({
+      next: res => { this.resultats = res; },
+      error: err => { console.error('Erreur lors du chargement des résultats', err); }
     });
   }
 }

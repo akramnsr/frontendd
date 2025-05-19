@@ -30,6 +30,14 @@ export class ResultatService {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+  submitResult(data: { quizId: number, score: number }) {
+    return this.http.post<Resultat>('/api/resultats/submit', data);
+  }
+
+  getAllMyResults() {
+    return this.http.get<Resultat[]>('/api/resultats/me');
+  }
+
 
 
 }

@@ -11,12 +11,12 @@ export class RapportEtuService {
 
   constructor(private http: HttpClient) {}
 
-  getRapports(page: number, size: number): Observable<{ content: RapportEtu[]; totalElements: number }> {
-    return this.http.get<{ content: RapportEtu[]; totalElements: number }>(
-      `${this.apiUrl}?page=${page}&size=${size}`
-    );
+  // 🔑 Renvoie UNIQUEMENT les rapports de l’étudiant connecté
+  getMesRapports(): Observable<RapportEtu[]> {
+    return this.http.get<RapportEtu[]>(`${this.apiUrl}/me`);
   }
 
+  // 🔍 Pour un rapport précis
   getRapport(id: number): Observable<RapportEtu> {
     return this.http.get<RapportEtu>(`${this.apiUrl}/${id}`);
   }
