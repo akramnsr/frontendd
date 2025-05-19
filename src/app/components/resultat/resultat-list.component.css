@@ -1,48 +1,97 @@
+/* Base Section Styling */
 .resultat-section {
-    padding: 3rem 2rem;
-    background: #f9f9f9;
-    max-width: 1200px;
-    margin: auto;
-    text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom right, #f8f9fa, #ffe3ee);
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* Title Styling */
 .resultat-section h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: #333;
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #222;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
+.resultat-section h2::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: #f72585;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+}
+
+/* Table Styling */
 .resultat-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .resultat-table thead {
-    background-color: #e0f2fe;
+  background-color: #e0f2fe;
+  color: #0a84ff;
 }
 
 .resultat-table th,
 .resultat-table td {
-    padding: 1rem;
-    text-align: left;
-    font-size: 0.95rem;
-    border-bottom: 1px solid #eee;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-size: 1rem;
+  border-bottom: 1px solid #eee;
+  color: #333;
 }
 
 .resultat-table td a {
-    background-color: #0a84ff;
-    color: white;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  background-color: #0a84ff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .resultat-table td a:hover {
-    background-color: #006edc;
+  background-color: #006edc;
+  transform: translateY(-3px);
+}
+
+/* Row Hover Effect */
+.resultat-table tr:hover {
+  background-color: #f1f8ff;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .resultat-section {
+    padding: 2rem 1rem;
+  }
+
+  .resultat-section h2 {
+    font-size: 2rem;
+  }
+
+  .resultat-table th, .resultat-table td {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+
+  .resultat-table td a {
+    padding: 0.4rem 1rem;
+  }
 }

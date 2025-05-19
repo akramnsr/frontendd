@@ -13,6 +13,7 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { authGuard } from './guards/auth.guard';
 import {FormationDetailComponent} from './components/formations/formation-detail.component';
 import {RapportEtuDetailComponent} from './components/rapport/rapport-etu-detail.component';
+import {FormationVideosComponent} from './components/formations/formation-videos.component';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,8 @@ export const routes: Routes = [
       { path: 'resultats', component: ResultatListComponent, canActivate: [authGuard] },
       { path: 'resultats/:id', component: ResultatDetailComponent, canActivate: [authGuard] },
       { path: 'formations/:id', component: FormationDetailComponent, canActivate: [authGuard]},
+      { path: 'formations/:id/commencer', component: FormationVideosComponent, canActivate: [authGuard] },
+
       { path: '', redirectTo: 'formations', pathMatch: 'full' }, // optionnel : page d'accueil
       { path: '**', redirectTo: 'formations' } // route wildcard
 

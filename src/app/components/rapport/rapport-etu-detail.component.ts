@@ -9,6 +9,8 @@ import {CommonModule} from '@angular/common';
   templateUrl: './rapport-etu-detail.component.html',
   standalone: true,
   imports: [CommonModule, RouterModule],
+  styleUrls: ['./rapport-etu-detail.component.css'] // Ajoute cette ligne
+
 })
 export class RapportEtuDetailComponent implements OnInit {
   rapport?: RapportEtu;

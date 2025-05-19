@@ -1,0 +1,107 @@
+/* Result Section */
+.result-section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 3rem;
+  background: linear-gradient(to bottom right, #f8f9fa, #ffe3ee);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Title styling */
+.result-section h2 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.result-section h2::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: #f72585;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+}
+
+/* Result Details */
+.result-details {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.result-item {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+.result-item strong {
+  color: #f72585;
+  font-weight: bold;
+  display: inline-block;
+  width: 120px; /* Consistent width for labels */
+}
+
+.result-item span {
+  color: #555;
+}
+
+/* Button Styling */
+.btn {
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.8rem 2.2rem;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  border: none;
+  text-transform: uppercase;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 2rem;
+}
+
+.btn-secondary {
+  background-color: #f72585;
+  color: white;
+  box-shadow: 0 4px 15px rgba(247, 37, 133, 0.3);
+}
+
+.btn-secondary:hover {
+  background-color: #b3005b;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(179, 0, 91, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .result-section {
+    padding: 2rem;
+  }
+
+  .result-section h2 {
+    font-size: 2rem;
+  }
+
+  .result-item {
+    font-size: 1rem;
+  }
+
+  .result-item strong {
+    width: 100px; /* Adjust label width for smaller screens */
+  }
+
+  .btn {
+    padding: 0.7rem 1.8rem;
+  }
+}

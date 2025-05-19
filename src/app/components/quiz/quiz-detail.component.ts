@@ -11,6 +11,8 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './quiz-detail.component.html',
+  styleUrls: ['./quiz-detail.component.css'] // Ajoute cette ligne
+
 })
 export class QuizDetailComponent implements OnInit {
   quiz?: Quiz;

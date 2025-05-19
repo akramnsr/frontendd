@@ -1,26 +1,26 @@
 <section class="formation-detail" *ngIf="formation">
   <div class="detail-header">
-    <h2>{{ formation.titre }}</h2>
-    <span class="badge">{{ formation.niveau }}</span>
+    <div>
+      <h2>{{ formation.titre }}</h2>
+      <span class="badge">{{ formation.niveau }}</span>
+    </div>
   </div>
 
-  <!-- Couverture si présente -->
   <div class="image-couverture" *ngIf="formation.imageUrl">
-    <img [src]="'/uploads/' + formation.imageUrl" alt="Couverture de la formation" style="max-width: 350px; border-radius: 10px; margin-bottom: 1rem;">
+    <img [src]="'http://localhost:8080/uploads/' + formation.imageUrl"
+         alt="Couverture de la formation" class="cover-img">
   </div>
 
   <p class="description">{{ formation.description }}</p>
-
-  <div>
+  <div class="formation-meta">
     <strong>Durée :</strong> {{ formation.dureeHeures }} h
   </div>
 
-  <div class="video-preview" *ngIf="formation.videoUrl">
-    <video controls class="video-player">
-      <source [src]="formation.videoUrl" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  <div *ngIf="!formation.videos || !formation.videos.length" class="empty-state">
+    <em>Aucune vidéo pour cette formation.</em>
   </div>
 
-  <button class="btn">Commencer la formation</button>
+  <a class="btn btn-primary" [routerLink]="['/formations', formation.id, 'commencer']">
+    Commencer la formation
+  </a>
 </section>

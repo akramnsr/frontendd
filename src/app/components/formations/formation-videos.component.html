@@ -1,0 +1,30 @@
+<div class="video-list-section" *ngIf="formation">
+
+  <ng-container *ngIf="videos.length > 0; else noVideos">
+    <div class="video-header">
+      <button class="btn-nav" (click)="previousVideo()" [disabled]="currentVideoIndex === 0">
+        &#8592; Précédent
+      </button>
+      <span class="video-count">
+        Vidéo {{ currentVideoIndex + 1 }} / {{ videos.length }}
+      </span>
+      <button class="btn-nav" (click)="nextVideo()" [disabled]="currentVideoIndex === videos.length - 1">
+        Suivant &#8594;
+      </button>
+    </div>
+    <div class="video-container">
+      <video
+        controls
+        class="video-player"
+        [src]="'http://localhost:8080' + videos[currentVideoIndex]?.url"
+      ></video>
+      <div class="video-filename">{{ videos[currentVideoIndex]?.filename }}</div>
+    </div>
+  </ng-container>
+
+  <ng-template #noVideos>
+    <div class="empty-state">
+      <p>Aucune vidéo disponible pour cette formation.</p>
+    </div>
+  </ng-template>
+</div>

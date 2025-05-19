@@ -1,10 +1,33 @@
-<h2>Détail du Résultat</h2>
-<div *ngIf="resultat">
-  <p><strong>ID:</strong> {{ resultat.id }}</p>
-  <p><strong>Étudiant:</strong> {{ resultat.etudiant?.nom }} {{ resultat.etudiant?.prenom }}</p>
-  <p><strong>Quiz:</strong> {{ resultat.quiz?.titre }}</p>
-  <p><strong>Score:</strong> {{ resultat.score }}</p>
-  <p><strong>Date:</strong> {{ resultat.datePassage | date:'dd/MM/yyyy HH:mm' }}</p>
-  <p><strong>Statut:</strong> {{ resultat.statut }}</p>
-  <a routerLink="/resultats" class="btn btn-secondary">← Retour à la liste</a>
-</div>
+<section class="result-section">
+  <div *ngIf="resultat" class="result-container">
+    <h2>Détail du Résultat</h2>
+
+    <div class="result-details">
+      <div class="result-item">
+        <strong>ID:</strong> <span>{{ resultat.id }}</span>
+      </div>
+
+      <div class="result-item">
+        <strong>Étudiant:</strong> <span>{{ resultat.etudiant?.nom }} {{ resultat.etudiant?.prenom }}</span>
+      </div>
+
+      <div class="result-item">
+        <strong>Quiz:</strong> <span>{{ resultat.quiz?.titre }}</span>
+      </div>
+
+      <div class="result-item">
+        <strong>Score:</strong> <span>{{ resultat.score }}</span>
+      </div>
+
+      <div class="result-item">
+        <strong>Date:</strong> <span>{{ resultat.datePassage | date:'dd/MM/yyyy HH:mm' }}</span>
+      </div>
+
+      <div class="result-item">
+        <strong>Statut:</strong> <span>{{ resultat.statut }}</span>
+      </div>
+    </div>
+
+    <a routerLink="/resultats" class="btn btn-secondary">← Retour à la liste</a>
+  </div>
+</section>

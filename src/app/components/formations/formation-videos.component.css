@@ -1,0 +1,99 @@
+.video-list-section {
+  max-width: 850px;
+  margin: 2.5rem auto;
+  padding: 2.3rem 2rem;
+  background: linear-gradient(90deg, #f8f9fa 60%, #ffe3ee 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(47, 53, 84, 0.08);
+}
+
+.formation-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #223354;
+  margin-bottom: 0.3rem;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.formation-desc {
+  font-size: 1.1rem;
+  color: #545478;
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.video-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.btn-nav {
+  background: #f72585;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: 0.55rem 1.3rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(247,37,133,0.07);
+  transition: background 0.22s;
+}
+.btn-nav:disabled {
+  background: #c0c0c0;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.video-count {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #b5179e;
+}
+
+.video-container {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(47, 53, 84, 0.14);
+  background: #fff;
+  max-width: 670px;
+  margin: 0 auto 1.2rem auto;
+  padding-bottom: 1rem;
+}
+
+.video-player {
+  width: 100%;
+  min-height: 220px;
+  max-height: 410px;
+  display: block;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.video-filename {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  color: #637295;
+  font-style: italic;
+  text-align: center;
+}
+
+.empty-state {
+  text-align: center;
+  margin: 2.2rem 0 1.2rem 0;
+  color: #bdbdbd;
+  font-size: 1.18rem;
+}
+
+@media (max-width: 600px) {
+  .video-list-section {
+    padding: 1.1rem 0.5rem;
+  }
+  .video-container {
+    max-width: 98vw;
+  }
+}

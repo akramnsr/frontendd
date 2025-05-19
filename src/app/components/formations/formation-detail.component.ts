@@ -21,14 +21,24 @@ export class FormationDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.formationService.getFormation(id)
-      .subscribe(data => {
-        this.formation = data;
-
-        // Ajoute une vidéo par défaut si besoin
-        if (!this.formation.videoUrl) {
-          this.formation.videoUrl = 'formation2.mp4'; // fichier par défaut
-        }
-      });
+    this.formationService.getFormation(id).subscribe(data => {
+      this.formation = data;
+      if (!this.formation.videos) {
+        this.formation.videos = []; // Si pas de vidéos, on assigne un tableau vide
+      }
+    });
   }
+  currentVideoIndex = 0;
+
+  previousVideo() {
+    if (this.currentVideoIndex > 0) this.currentVideoIndex--;
+  }
+
+  nextVideo() {
+    if (this.formation?.videos && this.currentVideoIndex < this.formation.videos.length - 1)
+      this.currentVideoIndex++;
+  }
+
+
+
 }
